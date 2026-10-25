@@ -4,3 +4,4 @@ NASAZENI.md
 .assetsignore
 .gitignore
 node_modules
+.git
