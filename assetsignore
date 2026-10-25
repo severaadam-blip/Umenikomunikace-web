@@ -1,0 +1,6 @@
+_worker.js
+wrangler.jsonc
+NASAZENI.md
+.assetsignore
+.gitignore
+node_modules
