@@ -4,6 +4,10 @@
   "compatibility_date": "2026-10-19",
   "observability": { "enabled": true },
   "vars": { "MAIL_FROM": "Umění komunikace <web@umenikomunikace.com>" },
+   "routes": [
+     { "pattern": "www.umenikomunikace.com", "custom_domain": true },
+     { "pattern": "umenikomunikace.com", "custom_domain": true }
+   ],
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
