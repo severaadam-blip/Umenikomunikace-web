@@ -3,5 +3,5 @@
    TURNSTILE_SITE_KEY   veřejný klíč (Site key) z Cloudflare Turnstile. Prázdné = ochrana proti robotům ve formuláři je vypnutá. */
 window.SITE_CONFIG = {
   GA_MEASUREMENT_ID: 'G-W16X709VTF',
-  TURNSTILE_SITE_KEY: ''
+  TURNSTILE_SITE_KEY: '0x4AAAAAAFlhYaKA9K7k5zKT'
 };
