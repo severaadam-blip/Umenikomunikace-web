@@ -174,6 +174,9 @@ textarea{min-height:110px;resize:vertical}
 .qb{display:flex;gap:6px}.qb button{all:unset;box-sizing:border-box;cursor:pointer;width:34px;height:34px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font:600 16px var(--hf)}
 .qb button:hover{background:var(--ink);color:var(--paper)}.qb button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .opts button i{font:700 12px var(--mono);font-style:normal;color:var(--red);margin-right:10px}
+.rx{display:grid;gap:6px;padding:18px 20px;background:var(--ink);color:var(--paper)}
+.rx .mono{color:var(--red)}.rx b{font:800 clamp(18px,2vw,22px)/1.3 var(--hf);letter-spacing:-.01em}.rx p{margin:0;font-size:15px;opacity:.9}
+.sl>.btn{align-self:flex-start}
 .fb{min-height:3.4em;font-size:16px;margin:0}.fb b{color:var(--red)}
 .sn{margin:0}.sn button{all:unset;cursor:pointer;display:inline;padding:1px 3px;font:400 18px/1.85 var(--bf)}
 .sn button:hover{background:#e5322d33}.sn button.sel{background:#e5322d33;box-shadow:inset 0 -2px var(--red)}
@@ -265,11 +268,12 @@ main{margin-left:0}section{padding:84px 22px}.wave{padding:0 22px}.hero{padding-
 <div class="opts" id="o1"><button data-k="0"><i>A</i>„Naše investice nadhodnocené nejsou. S tím souhlasit nemohu.“</button><button data-k="1"><i>B</i>„Můžete mi říct, kde jste k takovým údajům přišel?“</button><button data-k="2"><i>C</i>„Naše investice rozhodně nejsou nadhodnocené a už vůbec nezpůsobily žádné problémy.“</button><button data-k="3"><i>D</i>„No comment. Vaše informace nepocházejí z důvěryhodných zdrojů.“</button><button data-k="4"><i>E</i>„A to vám jako řekl kdo?“</button><button data-k="5"><i>F</i>„Nezkoušejte na mě podmiňovací způsob a ptejte se slušně.“</button></div>
 <p class="fb" id="f1" aria-live="polite"></p></article>
 
-<article class="sl"><span class="mono tag">02 · Argumentační fauly</span><h3>Sloučená otázka</h3>
-<p class="ctx">Moderátor se zeptá:</p>
-<div class="chp" id="o2"><button data-k="a">Už jste</button><button data-k="b">přestal</button><button data-k="c">podvádět své kolegy?</button></div>
-<p class="ctx">Kde je v otázce ukrytý argumentační faul? Klikněte na část věty.</p>
-<p class="fb" id="f2" aria-live="polite"></p></article>
+<article class="sl"><span class="mono tag">02 · Manipulativní techniky</span><h3>Řetěz parafrází</h3>
+<p class="ctx">Moderátor vaši odpověď opakovaně přeformulovává a podsouvá vám další tvrzení. Klikněte na „Moderátor se ptá znovu“ a vyzkoušejte, jak reagovat při každém dalším kole.</p>
+<div class="qn"><span class="mono" id="cn2">Kolo 1 / 7</span></div>
+<p class="qq" id="cq2">„SPLNILI JSTE LETOS VŠECHNY PODMÍNKY PRO UDĚLENÍ DOTAČNÍHO TITULU (SPLNĚNÍ VÝROBNÍ KVÓTY…)?“</p>
+<div class="rx" id="rx2" aria-live="polite"><span class="mono">Jak zareagovat</span><b id="rt2">Odpovězte věcně a stručně.</b><p id="rd2">Na první otázku odpovídáte normálně, jednou a jasně. Tohle je vaše základní odpověď.</p></div>
+<button class="btn" id="cb2" type="button">Moderátor se ptá znovu</button></article>
 
 <article class="sl"><span class="mono tag">03 · Hromadné kurzy</span><h3>Natáčení na kameru</h3>
 <p class="ctx">Součástí hromadných kurzů je vyjádření každého účastníka na kameru. Díky tomu dostanete jasnou zpětnou vazbu.</p>
@@ -374,10 +378,10 @@ function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 function bind(){var bt=q('#o1 button');bt.forEach(function(b){b.onclick=function(){bt.forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');var m=PQ[cur].o[+b.dataset.k];out.innerHTML='<b>'+esc(m[1])+'</b> '+esc(m[2])}})}
 function show(i){cur=(i+PQ.length)%PQ.length;qn.textContent='Otázka '+(cur+1)+' / '+PQ.length;qq.textContent='\u201E'+PQ[cur].q+'\u201C';oo.innerHTML=PQ[cur].o.map(function(o,k){return '<button data-k="'+k+'"><i>'+String.fromCharCode(65+k)+'</i>\u201E'+esc(o[0])+'\u201C</button>'}).join('');out.innerHTML='';bind()}
 $('qp1').onclick=function(){show(cur-1)};$('qx1').onclick=function(){show(cur+1)};bind()})();
-pickFb(q('#o2 button'),$('f2'),{
- a:['Ne tak docela.','„Už jste“ se ptá jen na čas. Hledejte slovo, které tiše něco předpokládá.'],
- b:['Přesně.','„Přestal“ předpokládá, že jste to dělal. Ať odpovíte „ano“, nebo „ne“, přiznáte to. V jedné otázce jsou sloučené dvě věci: tvrzení a samotná otázka. Nejdřív je třeba skrytý předpoklad odmítnout.'],
- c:['Skoro.','To je otevřené obvinění. Hledejte slovo, které ho schovává přímo do otázky.']});
+var CH=[["SPLNILI JSTE LETOS VŠECHNY PODMÍNKY PRO UDĚLENÍ DOTAČNÍHO TITULU (SPLNĚNÍ VÝROBNÍ KVÓTY…)?", "Odpovězte věcně a stručně.", "Na první otázku odpovídáte normálně, jednou a jasně. Tohle je vaše základní odpověď."], ["MÁM TOMU ROZUMĚT TAK, ŽE PODLE VÁS TY NESPLNĚNÉ ÚDAJE NEOVLIVNÍ…", "Odpovídejte stejně jako na první otázku.", "Neměníte odpověď a nenecháte se vtáhnout do přeformulování. Například: „Rozhodně ne, pokud vezmeme v úvahu…“"], ["CHCETE TÍM ŘÍCT, ŽE … (vaše odpověď přeformulovaná tak, aby zněla hůř)", "„Já už jsem vám odpověděl.“", "Klidně a bez vysvětlování. Moderátor chce, abyste se vysvětlovali dál."], ["TAKŽE VY MI VLASTNĚ TVRDÍTE, ŽE … (další přeformulování)", "„Nezlobte se, ale nebudu sám sebe parafrázovat.“", "Zdvořile odmítnete hrát hru na přeformulování."], ["A moderátor se ptá dál stejným způsobem.", "„Já jsem vám právě odpověděl a vy se ptáte, jako byste vůbec neposlouchal.“", "Upozorníte, že se opakuje. Pořád věcně a bez zvýšeného hlasu."], ["A moderátor se ptá dál stejným způsobem.", "„Co mi to podsouváte? Co vlastně chcete slyšet?“", "Pojmenujete, co moderátor dělá, a zeptáte se přímo."], ["A moderátor se ptá dál stejným způsobem.", "„Už vám nebudu nic vysvětlovat. Vidím, že jste pro pochopení indisponován.“", "Poslední stupeň. Použijte ho jen tehdy, když předchozí nezabraly."]];
+(function(){var i=0,n=CH.length,cn=$('cn2'),cq=$('cq2'),rt=$('rt2'),rd=$('rd2'),bt=$('cb2');
+function draw(){var c=CH[i];cn.textContent='Kolo '+(i+1)+' / '+n;cq.textContent='\u201E'+c[0]+'\u201C';rt.textContent=c[1];rd.textContent=c[2];bt.textContent=i===n-1?'Začít znovu':'Moderátor se ptá znovu'}
+bt.onclick=function(){i=(i+1)%n;draw()}})();
 pickFb(q('#o3 button'),$('f3'),{
  1:['Vyjádříte se na kameru.','Každý účastník má možnost vystoupit. Vyzkoušíte si, jak působíte, když mluvíte.'],
  2:['Uvidíte sami sebe.','Pohled zvenčí dá jasnou zpětnou vazbu: co funguje a co ne.'],
