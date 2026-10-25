@@ -121,9 +121,22 @@ h2{font-size:clamp(34px,5vw,64px);font-weight:800}
 /* quote */
 .ref{background:var(--red);color:#fff}
 .ref .sh .mono{color:#fff;opacity:.85}
-.ref blockquote{margin:0;font:600 clamp(20px,2.3vw,30px)/1.4 var(--hf);max-width:1000px;letter-spacing:-.01em}
-.ref cite{display:block;margin-top:34px;font-style:normal;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-.ref cite b{display:block;font:800 22px var(--hf);text-transform:none;letter-spacing:-.01em}
+.rs{display:grid;max-width:1000px}
+.rf{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .45s,transform .45s,visibility 0s .45s}
+.rf.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s,transform .45s}
+.rf.out{transform:translateX(-24px)}
+.ref blockquote{margin:0;font:600 clamp(18px,2vw,26px)/1.45 var(--hf);letter-spacing:-.01em}
+.ref figcaption{display:block;margin-top:30px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.ref figcaption b{display:block;font:800 22px var(--hf);text-transform:none;letter-spacing:-.01em;margin-bottom:2px}
+.rctl{display:flex;align-items:center;gap:18px;margin-top:44px;max-width:1000px}
+.rctl>button{all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 48px;width:48px;height:48px;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font:600 20px var(--hf);color:#fff}
+.rctl>button:hover,.rctl>button:focus-visible{background:#fff;color:var(--red)}
+.rdots{display:flex;gap:6px;flex:1}
+.rdots button{all:unset;box-sizing:border-box;cursor:pointer;width:28px;height:22px;padding:8px 0;background:rgba(255,255,255,.35);background-clip:content-box}
+.rdots button.on{background:#fff;background-clip:content-box}
+.rdots button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media(max-width:900px){.rdots{display:none}.rctl{justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){.rf,.rf.on{transition:none;transform:none}}
 /* gallery */
 .strip{display:flex;gap:14px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
 .strip button{all:unset;cursor:zoom-in;flex:0 0 auto;scroll-snap-align:start}
@@ -301,10 +314,10 @@ main{margin-left:0}section{padding:84px 22px}.wave{padding:0 22px}.hero{padding-
 <div><span class="mono" style="color:var(--red)">Průběh</span><ol class="steps" style="margin-top:22px"><li data-n="01">Intenzivní trénink vyjadřování, rétorika.</li><li data-n="02">Trénink větných obratů a konstrukcí jako součást jednání a veřejných diskusí.</li><li data-n="03">Argumentační fauly a manipulativní techniky.</li></ol></div></div>
 </section>
 
-<section class="ref" id="reference" data-t="Reference">
+<section class="ref" id="reference" data-t="Reference" aria-roledescription="carousel" aria-label="Reference od klientů">
 <div class="sh"><span class="mono">06</span><h2>Reference od klientů</h2></div>
-<blockquote>Kurz mediálního vystupování a komunikace s Martinem Severou byl pro mě především velmi praktický. Pracovali jsme s reálnými otázkami z politických debat a rozhovorů, včetně těch nepříjemných nebo záměrně podsouvajících. Pan Severa rychle pozná, kde se člověk v odpovědi zbytečně oslabuje nebo ztrácí hlavní sdělení, a pomáhá mu najít přirozený způsob, jak se vyjádřit. Oceňuji konkrétní techniky a formulace, díky kterým dokážu lépe vystavět odpověď, udržet vlastní téma a nenechat se otázkou zatlačit jinam. Řadu z nich dnes vědomě používám při debatách i veřejném vystupování.</blockquote>
-<cite><b>Hana Novotná</b>zastupitelka Praha 8</cite></section>
+<div class="rs" id="rs" aria-live="off"><figure class="rf on" id="rf0"><blockquote>Kurz mediálního vystupování a komunikace s Martinem Severou byl pro mě především velmi praktický. Pracovali jsme s reálnými otázkami z politických debat a rozhovorů, včetně těch nepříjemných nebo záměrně podsouvajících. Pan Severa rychle pozná, kde se člověk v odpovědi zbytečně oslabuje nebo ztrácí hlavní sdělení, a pomáhá mu najít přirozený způsob, jak se vyjádřit. Oceňuji konkrétní techniky a formulace, díky kterým dokážu lépe vystavět odpověď, udržet vlastní téma a nenechat se otázkou zatlačit jinam. Řadu z nich dnes vědomě používám při debatách i veřejném vystupování.</blockquote><figcaption><b>Hana Novotná</b>zastupitelka Praha 8</figcaption></figure><figure class="rf" id="rf1"><blockquote>Cením si okamžité reakce na mou akutní potřebu, kdy mě Martin po zjištění, že mě v řádu 2 dní čeká moje první panelová diskuze, provedl základními principy a dal mi užitečný návod, čeho se držet a čeho se vyvarovat. Přidaná hodnota je nesporně v možnosti se následně vidět na natočených sekvencích. V návazných lekcích jsme se věnovali vybraným komunikačním technikám - pro mě super, že probíhalo na mých reálných situacích.</blockquote><figcaption><b>Nicola Koldová</b>Škoda Auto</figcaption></figure><figure class="rf" id="rf2"><blockquote>Školení o efektivní a krizové komunikaci bylo pro nás velkým přínosem. Díky spoustě praktických příkladů a konkrétních situací, jsme si uvědomili, jaké máme komunikační návyky a jak by se daly zlepšit a využít v praxi. Díky příjemné a přátelské atmosféře jsme odcházeli velmi spokojeni. Školení doporučujeme všem, kteří chtějí zlepšit své komunikační dovednosti a naučit se lépe a správně reagovat a předcházet nedorozumění.</blockquote><figcaption><b>Ilona Semrádová</b>starostka Pece pod Sněžkou</figcaption></figure><figure class="rf" id="rf3"><blockquote>Po absolvování několika kurzů zaměřených na efektivní komunikaci musím říct, že mě workshop s Martinem Severou mile překvapil. Na rozdíl od jiných kurzů, kde je většinou více teorie než praxe, zde jsem dostala okamžitou zpětnou vazbu a mohla jsem hned upravovat svůj projev. Pan Severa dokáže velmi citlivě, ale trefně nasměrovat, co vylepšit, a jeho způsob vedení je neuvěřitelně poutavý. Čtyři hodiny utekly jako voda, a díky interakci s ostatními účastníky a přímé práci s Martinem se pro mě tento workshop stal nezapomenutelným zážitkem, který mě opravdu posunul dál.</blockquote><figcaption><b>Zuzana Vandam</b>radní města Uherské Hradiště</figcaption></figure><figure class="rf" id="rf4"><blockquote>Kurz byl pro mě užitečný a nejvíce jsem na něm oceňovala možnost natočení vlastní komunikace na audio/video s následným zhodnocením a komentářem, tato interaktivita byla, myslím si, velmi přínosná. Délka kurzu (4 hodiny) byla adekvátní a uběhla navíc velmi rychle. Vše se neslo v příjemném duchu. Budu ráda za nějaké budoucí volné pokračování. Děkuji</blockquote><figcaption><b>MUDr. Lenka Überallová</b>doktorka nemocnice v Uherském Hradišti</figcaption></figure><figure class="rf" id="rf5"><blockquote>Děkuji za profesionální přípravu k mému vystoupení v TV debatě s Václavem Moravcem. Vaše kurzy byly pro mne velkým přínosem.</blockquote><figcaption><b>MUDr. Zdeněk Mrozek</b>viceprezident České lékařské komory</figcaption></figure><figure class="rf" id="rf6"><blockquote>Ještě jednou si Vám dovoluji poděkovat za Váš trénink v mých začátcích. Byť jsem po každé lekci byl zničen a připadal si jako prvňáček, stále z této přípravy těžím.</blockquote><figcaption><b>Jaromír Dědeček</b>radní Královéhradeckého kraje</figcaption></figure><figure class="rf" id="rf7"><blockquote>Profesionálně připravený kurz nabídl vyvážený poměr teorie a praktických cvičení s kamerou, doplněný okamžitou zpětnou vazbou. Každé cvičení i část teorie měly v kurzu své jasné místo. Nic nebylo navíc a v základním kurzu nic nechybělo. Původní obava z příliš krátké časové dotace kurzu se rozptýlila hned po první kombinované dvouhodinové části. Pod vedením profesionála se dá stihnout opravdu hodně. Ke záznamům se můžu kdykoliv vracet a zopakovat si tak chyby i klíčové aspekty vystupování před kamerou.</blockquote><figcaption><b>Dušan Pavlů</b>ředitel marketingu OVB Allfinanz</figcaption></figure></div>
+<div class="rctl"><button id="rprev" type="button" aria-label="Předchozí reference">←</button><span class="mono" id="rcnt">01 / 08</span><div class="rdots" id="rdots"></div><button id="rnext" type="button" aria-label="Další reference">→</button></div></section>
 
 <section style="padding-top:70px;padding-bottom:70px"><div class="strip" id="strip"><button type="button" data-i="0" aria-label="Zvětšit fotografii 1"><img src="images/foto-01.webp" alt="Rozhovor u stolu, na obrazovce v pozadí je záběr z kamery" width="1100" height="730" loading="lazy"></button><button type="button" data-i="1" aria-label="Zvětšit fotografii 2"><img src="images/foto-02.webp" alt="Lektor s účastnicí ve zvukovém studiu při nácviku mluveného projevu" width="1600" height="1200" loading="lazy"></button><button type="button" data-i="2" aria-label="Zvětšit fotografii 3"><img src="images/foto-03.webp" alt="Účastnice kurzu s lektorem při natáčení, mezi nimi mikrofon a obrazovka" width="1200" height="1600" loading="lazy"></button><button type="button" data-i="3" aria-label="Zvětšit fotografii 4"><img src="images/foto-04.webp" alt="Natáčení účastníka kurzu na kameru, lektor vedle sleduje obraz" width="1600" height="1200" loading="lazy"></button><button type="button" data-i="4" aria-label="Zvětšit fotografii 5"><img src="images/foto-05.webp" alt="Lektor se dvěma účastníky v nahrávacím studiu" width="1600" height="1200" loading="lazy"></button><button type="button" data-i="5" aria-label="Zvětšit fotografii 6"><img src="images/foto-06.webp" alt="Lektor s účastníky u kamery a osvětlení" width="1600" height="1200" loading="lazy"></button><button type="button" data-i="6" aria-label="Zvětšit fotografii 7"><img src="images/foto-07.webp" alt="Lektor se studenty po přednášce" width="1600" height="1200" loading="lazy"></button><button type="button" data-i="7" aria-label="Zvětšit fotografii 8"><img src="images/foto-08.webp" alt="Rozhovor v televizním studiu, účastnice drží text" width="1000" height="750" loading="lazy"></button><button type="button" data-i="8" aria-label="Zvětšit fotografii 9"><img src="images/foto-09.webp" alt="Cvičný rozhovor ve studiu s knihovnou a kamerou" width="1600" height="1200" loading="lazy"></button></div></section>
 <dialog id="lb" aria-label="Zvětšená fotografie"><button class="x" type="button" aria-label="Zavřít">×</button><button class="pv" type="button" aria-label="Předchozí">←</button><img alt=""><button class="nx" type="button" aria-label="Další">→</button></dialog>
@@ -439,5 +452,22 @@ track.addEventListener('scroll',sync,{passive:true});prev.onclick=function(){go(
 addEventListener('resize',sync);sync();
 })();
 </script>
+<script>
+(function(){
+var rs=document.getElementById('rs');if(!rs)return;
+var f=[].slice.call(rs.children),n=f.length,i=0,cnt=document.getElementById('rcnt'),dots=document.getElementById('rdots'),pv=document.getElementById('rprev'),nx=document.getElementById('rnext'),ds=[];
+f.forEach(function(el,k){el.setAttribute('role','group');el.setAttribute('aria-label',(k+1)+' z '+n);if(k)el.setAttribute('aria-hidden','true');
+var d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Reference '+(k+1));d.onclick=function(){go(k)};dots.appendChild(d);ds.push(d)});
+function go(k){k=(k+n)%n;if(k===i)return;f[i].classList.remove('on');f[i].classList.add('out');f[i].setAttribute('aria-hidden','true');var o=f[i];setTimeout(function(){o.classList.remove('out')},460);i=k;f[i].classList.add('on');f[i].removeAttribute('aria-hidden');draw()}
+function draw(){cnt.textContent=String(i+1).padStart(2,'0')+' / '+String(n).padStart(2,'0');ds.forEach(function(d,k){d.classList.toggle('on',k===i);if(k===i)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})}
+pv.onclick=function(){go(i-1)};nx.onclick=function(){go(i+1)};
+var sec=document.getElementById('reference');
+sec.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){go(i-1)}else if(e.key==='ArrowRight'){go(i+1)}});
+var x0=null;rs.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+rs.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>50)go(i+(dx<0?1:-1))});
+draw();
+})();
+</script>
+
 </body>
 </html>
