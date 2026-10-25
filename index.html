@@ -170,6 +170,10 @@ textarea{min-height:110px;resize:vertical}
 .chp{display:flex;flex-wrap:wrap;gap:8px}.chp button{font-size:clamp(19px,2.2vw,24px);font-weight:600}
 .pick{display:flex;flex-wrap:wrap;gap:8px}
 .pick-l{font:500 12.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:6px 0 -6px}
+.qn{display:flex;justify-content:space-between;align-items:center;margin-top:4px}.qn .mono{color:var(--mute)}
+.qb{display:flex;gap:6px}.qb button{all:unset;box-sizing:border-box;cursor:pointer;width:34px;height:34px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font:600 16px var(--hf)}
+.qb button:hover{background:var(--ink);color:var(--paper)}.qb button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.opts button i{font:700 12px var(--mono);font-style:normal;color:var(--red);margin-right:10px}
 .fb{min-height:3.4em;font-size:16px;margin:0}.fb b{color:var(--red)}
 .sn{margin:0}.sn button{all:unset;cursor:pointer;display:inline;padding:1px 3px;font:400 18px/1.85 var(--bf)}
 .sn button:hover{background:#e5322d33}.sn button.sel{background:#e5322d33;box-shadow:inset 0 -2px var(--red)}
@@ -255,10 +259,10 @@ main{margin-left:0}section{padding:84px 22px}.wave{padding:0 22px}.hero{padding-
 <div class="car"><div class="track" id="track">
 
 <article class="sl"><span class="mono tag">01 · Čelit nepříjemným otázkám</span><h3>Podsouvací otázky</h3>
-<p class="ctx">Rozhovor pro média. Moderátor se zeptá:</p>
-<p class="qq">„Není tohle celé zbytečné plýtvání penězi daňových poplatníků?“</p>
-<p class="ctx">Otázka už v sobě obsahuje tvrzení, že jde o plýtvání. Jak odpovíte? Vyzkoušejte všechny čtyři možnosti.</p>
-<div class="opts" id="o1"><button data-k="def">„Já přece nikdy neplýtvám, to je nespravedlivé!“</button><button data-k="ust">„Chápu, že to tak může vypadat, ale vlastně to není tak jednoduché…“</button><button data-k="odm">„Rozhodně to není plýtvání. Jde o investici do oprav škol.“</button><button data-k="ok">„Dnes rozhodujeme o opravách škol. Na tom záleží nejvíc.“</button></div>
+<p class="ctx">Nenechte si vnutit odpověď. Moderátor vám položí sugestivní otázku, která vás má dovést k odpovědi, kterou chce slyšet. Vyberte reakci, která vám vyhovuje, případně zvolte jinou.</p>
+<div class="qn"><span class="mono" id="qn1">Otázka 1 / 3</span><span class="qb"><button type="button" id="qp1" aria-label="Předchozí otázka">←</button><button type="button" id="qx1" aria-label="Další otázka">→</button></span></div>
+<p class="qq" id="qq1">„SOUHLASIL BYSTE S TÍM, ŽE PROBLÉMY VAŠÍ FIRMY ZPŮSOBILY NADHODNOCENÉ INVESTICE?“</p>
+<div class="opts" id="o1"><button data-k="0"><i>A</i>„Naše investice nadhodnocené nejsou. S tím souhlasit nemohu.“</button><button data-k="1"><i>B</i>„Můžete mi říct, kde jste k takovým údajům přišel?“</button><button data-k="2"><i>C</i>„Naše investice rozhodně nejsou nadhodnocené a už vůbec nezpůsobily žádné problémy.“</button><button data-k="3"><i>D</i>„No comment. Vaše informace nepocházejí z důvěryhodných zdrojů.“</button><button data-k="4"><i>E</i>„A to vám jako řekl kdo?“</button><button data-k="5"><i>F</i>„Nezkoušejte na mě podmiňovací způsob a ptejte se slušně.“</button></div>
 <p class="fb" id="f1" aria-live="polite"></p></article>
 
 <article class="sl"><span class="mono tag">02 · Argumentační fauly</span><h3>Sloučená otázka</h3>
@@ -364,11 +368,12 @@ function q(s){return [].slice.call(document.querySelectorAll(s))}
 function pl(n,a,b,c){return n===1?a:(n>=2&&n<=4?b:c)}
 function prefill(txt){var m=$('msg');m.value=txt;$('kontakt').scrollIntoView({behavior:reduce?'auto':'smooth'});setTimeout(function(){m.focus({preventScroll:true})},600)}
 function pickFb(btns,out,map){btns.forEach(function(b){b.onclick=function(){btns.forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');var m=map[b.dataset.k];out.innerHTML='<b>'+m[0]+'</b> '+m[1]}})}
-pickFb(q('#o1 button'),$('f1'),{
- def:['Brání se.','Přebíráte slovo „plýtvání“ a mluvíte o sobě místo o svém tématu.'],
- ust:['Ustupuje.','„Chápu“, „vlastně“ a „ale“ oslabí sdělení dřív, než k němu vůbec dojdete.'],
- odm:['Odmítá podsouvací otázku.','Předpoklad „plýtvání“ nepřijímá, jasně ho odmítne a hned říká, jak to je. To je jedna z možných odpovědí.'],
- ok:['Drží téma.','Předpoklad otázky nekomentuje, jen přejde k tomu, o čem chce mluvit.']});
+var PQ=[{"q": "SOUHLASIL BYSTE S TÍM, ŽE PROBLÉMY VAŠÍ FIRMY ZPŮSOBILY NADHODNOCENÉ INVESTICE?", "o": [["Naše investice nadhodnocené nejsou. S tím souhlasit nemohu.", "Odmítá předpoklad.", "Krátce a jasně řeknete, že nesouhlasíte. Nic dalšího ale nepřidáváte, takže iniciativa zůstává u tazatele."], ["Můžete mi říct, kde jste k takovým údajům přišel?", "Protiotázka.", "Přehodíte důkazní břemeno na tazatele a získáte čas. Pokud ji použijete opakovaně, působí jako úhyb."], ["Naše investice rozhodně nejsou nadhodnocené a už vůbec nezpůsobily žádné problémy.", "Odmítá víc, než se ptá.", "Popřete investice i problémy najednou. Silná slova „rozhodně“ a „vůbec“ zvou k vyvracení."], ["No comment. Vaše informace nepocházejí z důvěryhodných zdrojů.", "Uzavírá rozhovor.", "Zpochybníte tazatele a odmítnete mluvit. Působí to obranně a divák se nic nedozví."], ["A to vám jako řekl kdo?", "Útočí na zdroj.", "Zní to hovorově a trochu útočně. Mluvíte o tazateli, ne o svém tématu."], ["Nezkoušejte na mě podmiňovací způsob a ptejte se slušně.", "Řeší formu otázky.", "Pojmenujete techniku, ale téma zůstane nevyřešené. Může to znít pedanticky."]]}, {"q": "ŘEKL BYSTE, ŽE TENTO VÝSLEDEK JE PRO VAŠI STRANU (FIRMU) VELKÝ NEÚSPĚCH?", "o": [["Proč si myslíte, že je to neúspěch?", "Vyhýbá se odpovědi.", "Odpověď otázkou začínající „proč“ přehazuje břímě na tázajícího. Je to argumentační faul, ale lze ho použít jako obranu proti dotěrným dotazům."], ["Neřekl. To říkáte vy.", "Odmítá podsouvání.", "Jasně se ohradíte, že tvrzení nepřijímáte. Může znít ostře. Doplňte, jak to vidíte vy."], ["A vy byste to řekl? Z vašeho dotazu vyplývá, že vás náš údajný neúspěch těší.", "Obrací obvinění.", "Přebíráte jeho téma a přecházíte do útoku. Tazatel má pak jednoduchou odpověď."], ["Můžete se prosím zeptat slušně bez toho podmiňovacího způsobu?", "Řeší formu otázky.", "Věnujete se tomu, jak se ptá, ne tomu, co říkáte vy."], ["Nezkoušejte na mě ty vaše finty s „kdyby“.", "Obviňuje z triku.", "Zní obranně a vyhrocuje rozhovor."], ["Naopak. Vzhledem k nezbytným opatřením je tento výsledek pro nás velký úspěch.", "Odmítá a dodává vlastní sdělení.", "Předpoklad odmítnete a hned vracíte rozhovor ke svému tématu."]]}, {"q": "CO BUDETE DĚLAT S NEOČEKÁVANĚ NÍZKÝMI PŘÍJMY (NÍZKOU PŘÍZNÍ VOLIČŮ) VAŠÍ FIRMY?", "o": [["Příjmy nejsou za daných okolností nízké. Srovnejte si prosím výsledky minulého roku s růstem HDP.", "Odmítá předpoklad a opírá se o srovnání.", "Funguje, pokud umíte srovnání doložit čísly."], ["Nebudeme dělat nic, protože vaše informace nejsou pravdivé.", "Odmítá, ale riskantně.", "Věta „nebudeme dělat nic“ se snadno citují bez zbytku odpovědi."], ["A co budete dělat vy s takovými sugestivními otázkami?", "Útočí na tazatele.", "Pozornost se přesune k tazateli, ale ne k vaší odpovědi."], ["Chcete snad, abych řekl jen to, co chcete slyšet?", "Pojmenovává záměr tazatele.", "Použitá hned na začátku působí obranně. Lépe vyzní až po vaší věcné odpovědi."], ["Dělá vám radost, když mi podsouváte, že naše firma (strana) není úspěšná?", "Obrací se na tazatele s emocí.", "Riziko vyhrocení. Divák uvidí hádku, ne odpověď."]]}];
+(function(){var cur=0,oo=$('o1'),out=$('f1'),qq=$('qq1'),qn=$('qn1');
+function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function bind(){var bt=q('#o1 button');bt.forEach(function(b){b.onclick=function(){bt.forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');var m=PQ[cur].o[+b.dataset.k];out.innerHTML='<b>'+esc(m[1])+'</b> '+esc(m[2])}})}
+function show(i){cur=(i+PQ.length)%PQ.length;qn.textContent='Otázka '+(cur+1)+' / '+PQ.length;qq.textContent='\u201E'+PQ[cur].q+'\u201C';oo.innerHTML=PQ[cur].o.map(function(o,k){return '<button data-k="'+k+'"><i>'+String.fromCharCode(65+k)+'</i>\u201E'+esc(o[0])+'\u201C</button>'}).join('');out.innerHTML='';bind()}
+$('qp1').onclick=function(){show(cur-1)};$('qx1').onclick=function(){show(cur+1)};bind()})();
 pickFb(q('#o2 button'),$('f2'),{
  a:['Ne tak docela.','„Už jste“ se ptá jen na čas. Hledejte slovo, které tiše něco předpokládá.'],
  b:['Přesně.','„Přestal“ předpokládá, že jste to dělal. Ať odpovíte „ano“, nebo „ne“, přiznáte to. V jedné otázce jsou sloučené dvě věci: tvrzení a samotná otázka. Nejdřív je třeba skrytý předpoklad odmítnout.'],
