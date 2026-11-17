@@ -10,7 +10,7 @@
 
 ## Kde
 
-- Většinou v Praze ve vlastním, kompletně vybaveném studiu (kamera, světla, mikrofony).
+- Většinou v Praze ve vlastním, kompletně vybaveném studiu (kamera, světla, mikrofony): Kongresové centrum Praha, vchod 5, 5. května 1640/65, Praha 4.
 - Na místě u klienta kdekoliv, případně online.
 
 ## Co se naučíte
@@ -20,6 +20,12 @@
 - Zbavit se slovních výstelek
 - Čelit nepříjemným otázkám, říkat ne a nepodlehnout podsouvacím otázkám
 - Rozpoznat řetěz parafrází, argumentační fauly a techniku DARVO
+
+## Návody
+
+- [Jak odpovědět na podsouvací otázku](https://www.umenikomunikace.com/navody/podsouvaci-otazky.html): šest technik proti sugestivním otázkám
+- [Řetěz parafrází](https://www.umenikomunikace.com/navody/retez-parafrazi.html): jak zastavit opakované přeformulování odpovědi
+- [Co je DARVO](https://www.umenikomunikace.com/navody/darvo.html): popřít, zaútočit, otočit role oběti a viníka
 
 ## Aplikace
 
@@ -31,7 +37,7 @@
 
 ## Časté dotazy
 
-- **Kde kurzy probíhají?** Většinou v Praze, kde máme kompletně vybavené studio s kamerou a světly. Za vámi nebo vaším týmem přijedeme kamkoliv, kurz je možné vést i online.
+- **Kde kurzy probíhají?** Většinou v Praze v Kongresovém centru (vchod 5), kde máme kompletně vybavené studio s kamerou a světly. Za vámi nebo vaším týmem přijedeme kamkoliv, kurz je možné vést i online.
 - **Pro koho je kurz efektivní komunikace určený?** Pro manažery, obchodní zástupce a zastupitele, ale i pro kohokoliv, kdo chce mluvit srozumitelně, přesvědčivě a bez slovního plevelu. Lekce jsou určeny především pro ty, kdo vystupují na jednáních, prezentacích nebo v médiích.
 - **Co je mediální trénink?** Příprava na vystupování v médiích: rozhovory, debaty a panelové diskuse. Trénujete odpovědi na kameru, včetně nepříjemných a podsouvacích otázek, jaké kladou moderátoři. Ze záznamu pak dostanete konkrétní zpětnou vazbu k obsahu i formě projevu. Lektor dříve moderoval televizní zpravodajství.
 - **Jak dlouho kurz trvá?** Hromadný workshop trvá 3 až 5 hodin podle počtu účastníků. Individuální kurz doporučujeme jako 3 lekce po 2 hodinách s týdenním odstupem.
