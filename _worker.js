@@ -119,7 +119,13 @@ async function handleContact(request, env) {
 
 export default {
   async fetch(request, env) {
-    const { pathname } = new URL(request.url);
+    const url = new URL(request.url);
+    const { pathname } = url;
+    // Jedna adresa webu pro vyhledávače: umenikomunikace.com -> www.umenikomunikace.com (trvalé přesměrování)
+    if (url.hostname === 'umenikomunikace.com') {
+      url.hostname = 'www.umenikomunikace.com';
+      return Response.redirect(url.toString(), 301);
+    }
     if (pathname === '/api/contact') {
       if (request.method !== 'POST') return json({ ok: false, error: 'method' }, 405);
       return handleContact(request, env);
